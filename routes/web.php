@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,20 +17,21 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('index');
-});
+//Route::get('/', function () {
+//    return view('index');
+//});
 
 
-Route::get('/index', [HomeController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
+Route::get('/notFound', [HomeController::class, 'notFound'])->name('404');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
-Route::get('/product_details', [HomeController::class, 'product_details'])->name('product_details');
-Route::get('/blog_single', [HomeController::class, 'blog_single'])->name('blog_single');
-Route::get('/contact_us', [HomeController::class, 'contact_us'])->name('contact_us');
+Route::get('/product_details', [HomeController::class, 'productDetails'])->name('product_details');
+Route::get('/blog_single', [HomeController::class, 'blogSingle'])->name('blog_single');
+Route::get('/contact_us', [HomeController::class, 'contactUs'])->name('contact_us');
 //Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 
 

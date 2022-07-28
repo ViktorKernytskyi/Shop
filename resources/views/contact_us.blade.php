@@ -33,8 +33,8 @@
                 <div class="col-sm-6">
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
-                            <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                            <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                            <li><a href=""><i class="fa fa-phone"></i>103</a></li>
+                            <li><a href=""><i class="fa fa-envelope"></i> skoruyu_vizivali@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -150,6 +150,7 @@
             <div class="col-sm-12">
                 <h2 class="title text-center">Contact <strong>Us</strong></h2>
                 <div id="gmap" class="contact-map">
+                    <?php echo' tut buv ya' ?>
                 </div>
             </div>
         </div>
@@ -183,10 +184,10 @@
                     <address>
                         <p>E-Shopper Inc.</p>
                         <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-                        <p>Newyork USA</p>
-                        <p>Mobile: +2346 17 38 93</p>
-                        <p>Fax: 1-714-252-0026</p>
-                        <p>Email: info@e-shopper.com</p>
+                        <p>Dnipro Ukraine</p>
+                        <p>Mobile: 103</p>
+                        <p>Fax: 1-103-103-103</p>
+                        <p>Email: skoruyu_vizivali@gmail.com</p>
                     </address>
                     <div class="social-networks">
                         <h2 class="title text-center">Social Networking</h2>
