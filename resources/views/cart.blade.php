@@ -1,5 +1,6 @@
 @extends('layouts.main')
 
+
 @section('content')
 
 <section id="cart_items">
@@ -10,6 +11,7 @@
                 <li class="active">Shopping Cart</li>
             </ol>
         </div>
+
         <div class="table-responsive cart_info">
             <table class="table table-condensed">
                 <thead>
@@ -23,16 +25,15 @@
                 </tr>
                 </thead>
                 <tbody>
-
-                @foreach($products as $product)
-                <tr>
+                @foreach($cart as $product_id=>$product)
+                <tr id="trId_{{ $product->id }}">
                     <td class="cart_product">
                         <a href="">
                             <img width="110" height="110" src="{{ asset($product->image_path) }}" alt="">
                         </a>
                     </td>
                     <td class="cart_description">
-                       <h4><a href="">{{ $product->name }}</a></h4>  
+                       <h4><a href="">{{ $product->name }}</a></h4>
                         <p>Web ID: {{ $product->id }}</p>
                     </td>
                     <td class="cart_price">
@@ -40,19 +41,22 @@
                     </td>
                     <td class="cart_quantity">
                         <div class="cart_quantity_button">
-                            <a class="cart_quantity_up" href=""> + </a>
-                            <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                            <a class="cart_quantity_down" href=""> - </a>
+                            <a class="cart_quantity_up" onclick="addToCard('{{ $product->id }}')"> + </a>
+                            <input id="cartValue_{{ $product->id }}" class="cart_quantity_input" type="text" name="quantity" value="{{ $product->qty }}" autocomplete="off" size="2">
+                            <a class="cart_quantity_down" onclick="addToCard('{{ $product->id }}', 'dec')"> - </a>
                         </div>
                     </td>
                     <td class="cart_total">
-                        <p class="cart_total_price">UAH {{ $product->price }}</p>
+                        <p id="priceId_{{ $product->id }}" class="cart_total_price">
+                            UAH {{ number_format((float)($product->price * $product->qty), 2, '.', '') }}
+
+                        </p>
                     </td>
                     <td class="cart_delete">
-                        <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                        <a href="#" class="cart_quantity_delete" onclick="cartDelete('{{ $product->id }}')"><i class="fa fa-times">видалити</i></a>
                     </td>
                 </tr>
-               @endforeach
+                @endforeach
                 </tbody>
             </table>
         </div>
@@ -70,7 +74,7 @@
                 <div class="chose_area">
                     <ul class="user_option">
                         <li>
-                            <input type="checkbox">
+                            <input class="testClass" type="checkbox">
                             <label>Use Coupon Code</label>
                         </li>
                         <li>
@@ -123,7 +127,7 @@
             <div class="col-sm-6">
                 <div class="total_area">
                     <ul>
-                        <li>Cart Sub Total <span>$59</span></li>
+                        <li>Cart Sub Total <span>UAH 59</span></li>
                         <li>Eco Tax <span>$2</span></li>
                         <li>Shipping Cost <span>Free</span></li>
                         <li>Total <span>$61</span></li>
@@ -136,4 +140,9 @@
     </div>
 </section><!--/#do_action-->
 
+
 @endsection
+@section('script')
+    <script src="{{ asset('assets/js/cart.js') }}"></script>
+@endsection
+

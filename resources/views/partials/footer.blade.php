@@ -20,7 +20,7 @@
                                 </div>
                             </a>
                             <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <h2>24 DEC 2019</h2>
                         </div>
                     </div>
 
@@ -35,7 +35,7 @@
                                 </div>
                             </a>
                             <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <h2>24 DEC 2020</h2>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@
                                 </div>
                             </a>
                             <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <h2>24 DEC 2021</h2>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
                                 </div>
                             </a>
                             <p>Circle of Hands</p>
-                            <h2>24 DEC 2013</h2>
+                            <h2>24 DEC 2022</h2>
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+                <p class="pull-left">Copyright © 2022 E-SHOPPER Inc. All rights reserved.</p>
                 <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
             </div>
         </div>

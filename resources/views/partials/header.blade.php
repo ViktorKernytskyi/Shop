@@ -5,8 +5,8 @@
                 <div class="col-sm-6">
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
-                            <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i> +3 8067 00 00 103</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> clinika@domain.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -41,6 +41,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#">Canada</a></li>
                                 <li><a href="#">UK</a></li>
+                                <li><a href="">UA</a></li>
                             </ul>
                         </div>
 
@@ -52,6 +53,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#">Canadian Dollar</a></li>
                                 <li><a href="#">Pound</a></li>
+                                <li><a href="">UAH</a></li>
                             </ul>
                         </div>
                     </div>

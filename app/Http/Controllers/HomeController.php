@@ -6,27 +6,42 @@ use App\Http\Admin\Categories;
 use App\Http\Admin\Products;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    /**
+     * @return View
+     */
+    public function index(): View
     {
+ 
+//        dd(Product::query()->select([
+//            \DB::raw('count(*) as total'),
+//            'brand'
+//        ])->groupBy('brand')->get());
+
         $products = Product::all();
+        $categories = Category::query()
+            ->with('products')
+            ->get();
+
 
         return view('index', [
-            'products' => $products
+            'products' => $products,
+            'categories' => $categories
         ]);
     }
 
-    public function cart()
-    {
-        $products = Product::all();
-
-        return view('cart', [
-            'products' => $products
-        ]);
-    }
+//    public function cart()
+//    {
+//        $products = Product::all();
+//
+//        return view('cart', [
+//            'products' => $products
+//        ]);
+//    }
     public function notFound()
     {
 
