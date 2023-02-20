@@ -10,6 +10,7 @@ class CartController extends Controller
 {
     public function cart()
     {
+//        dd(session()->all());
         return view('cart', [
             'cart' => session()->get('cart', [])
         ]);
@@ -34,14 +35,44 @@ class CartController extends Controller
         $cart[$product_id]->qty > 0
             ? session()->put('cart', $cart)
             : $this->deleteItem($product_id);
-        return response()->json(session()->get('cart', []), JsonResponse::HTTP_OK);
+
+        $this->calcCart($cart);
+
+        return response()->json([
+            'cart' => session()->get('cart', []),
+            'total' => session()->get('cartTotal', [])
+        ], JsonResponse::HTTP_OK);
 
     }
 
-    public function cartDelete(Request $request)
+    /**
+     * @param array $cart
+     */
+    protected function calcCart(array $cart): void
+    {
+        $total = [
+            'sum' => 0,
+            'count' => 0
+        ];
+
+        foreach ($cart as $product) {
+            $total['sum'] += $product['qty'] * $product['price'];
+            $total['count'] += $product->qty;
+        }
+
+        session()->put('cartTotal', $total);
+    }
+
+    public function cartDelete(Request $request): \Illuminate\Http\JsonResponse
     {
         $this->deleteItem($request->get('product_id'));
-        return response()->json(['message' => 'Deleted'], JsonResponse::HTTP_OK);
+        $this->calcCart(session()->get('cart'));
+
+        return response()->json([
+            'message' => 'Deleted',
+              'cart' => session()->get('cart', []),
+            'total' => session()->get('cartTotal', [])
+        ], JsonResponse::HTTP_OK);
     }
 
     protected function deleteItem(int $id)

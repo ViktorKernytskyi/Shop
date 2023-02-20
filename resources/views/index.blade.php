@@ -91,7 +91,7 @@
                                             <p>{{ $product->name }}</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i
                                                     class="fa fa-shopping-cart"></i>
-                                            <button onclick="addToCard('{{ $product->id }}')">покласти до кошика</button></a>
+                                            <button onclick="addToCard('{{ $product->id }}')">до кошика</button></a>
                                         </div>
 {{--                                        <div class="product-overlay">--}}
 {{--                                            <div class="overlay-content">--}}
@@ -134,14 +134,14 @@
                                         <div class="col-sm-3">
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <img style="max-width: 200px; height: 150px"
-                                                             src="{{ asset($product->image_path) }}" alt=""/>
+                                                     <div class="productinfo text-center">
+                                                         <img style="max-width: 268px; height: 249px"
+                                                              src="{{ asset($product->image_path) }}" alt=""/>
                                                         <h2>UAH {{ $product->price }}</h2>
                                                         <p>{{ $product->name }}</p>
                                                         <a href="#" class="btn btn-default add-to-cart">
                                                             <i class="fa fa-shopping-cart"></i>
-                                                            <button onclick="addToCard('{{ $product->id }}')">покласти до кошика</button>
+                                                            <button onclick="addToCard('{{ $product->id }}')"> до кошика</button>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -158,95 +158,58 @@
 
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
-                                <div class="item active">
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="{{ asset('images/home/recommend1.jpg') }}" alt=""/>
-                                                    <h2>UAH 56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="{{ asset('images/home/recommend2.jpg') }}" alt=""/>
-                                                    <h2>UAH 56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                </div>
+                                @foreach($recProducts as $key => $chunk)
+                                    <div class="item {{ $key === 0 ? 'active' : '' }}">
+                                        @foreach($chunk as $prod)
+                                            <div class="col-sm-4">
+                                                <div class="product-image-wrapper">
+                                                    <div class="single-products">
+                                                        <div class="productinfo text-center">
+                                                            <img style="max-width: 268px; height: 249px" src="{{ asset($prod->image_path) }}" alt="" />
+                                                            <h2>UAH {{ $prod->price }}</h2>
+                                                            <p>{{ $prod->name }}</p>
+                                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                            <a href="#" class="btn btn-default add-to-cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                                <button onclick="addToCard('{{ $prod->id }}')"> до кошика</button>
+                                                            </a>
+                                                        </div>
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="{{ asset('images/home/recommend3.jpg') }}" alt=""/>
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                    </div>
                                                 </div>
-
                                             </div>
-                                        </div>
+                                        @endforeach
                                     </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="{{ asset('images/home/recommend1.jpg') }}" alt=""/>
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                </div>
+                                @endforeach
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="{{ asset('images/home/recommend2.jpg') }}" alt=""/>
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                </div>
+{{--                                <div class="item active">--}}
+{{--                                    @foreach($products as $product)--}}
+{{--                                    <div class="col-sm-4">--}}
+{{--                                        <div class="product-image-wrapper">--}}
+{{--                                            <div class="single-products">--}}
+{{--                                                <div class="productinfo text-center">--}}
+{{--                                                    <img style="max-width: 268px; height: 249px"--}}
+{{--                                                     src="{{ asset($product->image_path) }}" alt=""/>--}}
+{{--                                                    <h2>UAH {{ $product->price }}</h2>--}}
+{{--                                                    <p>{{ $product->name }}</p>--}}
+{{--                                                    <a href="#" class="btn btn-default add-to-cart"><i--}}
+{{--                                                            class="fa fa-shopping-cart"></i>--}}
+{{--                                                        <button onclick="addToCard('{{ $product->id }}')">покласти до кошика</button></a>--}}
+{{--                                                </div>--}}
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="{{ asset('images/home/recommend3.jpg') }}" alt=""/>
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                </div>
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+{{--                                </div>--}}
+{{--                                <div class="item">--}}
+
+{{--                                    @endforeach--}}
+{{--                                </div>--}}
                             </div>
+
                             <a class="left recommended-item-control" href="#recommended-item-carousel"
                                data-slide="prev">
                                 <i class="fa fa-angle-left"></i>
@@ -256,6 +219,7 @@
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </div>
+
                     </div><!--/recommended_items-->
 
                 </div>

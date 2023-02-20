@@ -130,6 +130,9 @@ class Users extends Section implements Initializable
                 AdminFormElement::text('email', 'email')
                     ->required()
                 ,
+                AdminFormElement::number('phone', 'phone')
+                    ->required()
+                ,
 
                 AdminFormElement::text('password', 'password')
                     ->required()

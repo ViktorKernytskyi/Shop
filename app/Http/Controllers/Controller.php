@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -14,7 +15,9 @@ class Controller extends BaseController
 
     public function __construct()
     {
+
         $this->setSidebarCategories();
+        $this->setSidebarBrands();
     }
 
     protected function setSidebarCategories()
@@ -22,6 +25,13 @@ class Controller extends BaseController
         \View::share('sidebar', Product::query()
             ->select(['categories.name', 'products.brand'])
             ->join('categories', 'categories.id', '=', 'products.category_id')
+            ->get()->groupBy('name'));
+    }
+    protected function setSidebarBrands()
+    {
+        \View::share('side_bar', Brand::query()
+            ->select(['brands.name'])
+
             ->get()->groupBy('name'));
     }
 }

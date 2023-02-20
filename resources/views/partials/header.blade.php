@@ -6,7 +6,7 @@
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
                             <li><a href="#"><i class="fa fa-phone"></i> +3 8067 00 00 103</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> clinika@domain.com</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> clinika@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="{{ route('checkout') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="{{ route('login') }}"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="{{ route('login') }}"> <i class="fa fa-lock"></i> Login </a></li>
                         </ul>
                     </div>
                 </div>

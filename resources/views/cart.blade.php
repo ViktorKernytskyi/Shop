@@ -125,15 +125,37 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="total_area">
+                <div class="total_area" onclick="">
                     <ul>
-                        <li>Cart Sub Total <span>UAH 59</span></li>
-                        <li>Eco Tax <span>$2</span></li>
-                        <li>Shipping Cost <span>Free</span></li>
-                        <li>Total <span>$61</span></li>
+                        <li>
+                            Cart Sub Total
+                            <span id="cartSubTotal">
+                                UAH {{ number_format((float)(session()->get('cartTotal.sum')), 2, '.', '') }}
+                            </span>
+                        </li>
+                        <li>
+                            count
+                            <span id="count">
+                                int {{ number_format((float)(session()->get('cartTotal.count')), 2, '.', '') }}</span></li>
+{{--                        <li>Shipping Cost <span>Free</span></li>--}}
+                        <li>
+                            Total
+                            <span id = "Total">
+                                UAH {{ number_format((float)(session()->get('cartTotal.sum')), 2, '.', '') }}
+                            </span>
+                        </li>
+{{--                        <li>--}}
+
+{{--                            <span id = "cartdelete">--}}
+
+{{--                            </span>--}}
+{{--                        </li>--}}
+
                     </ul>
-                    <a class="btn btn-default update" href="">Update</a>
+
+                    <a class="btn btn-default update" href=" ">Update</a>
                     <a class="btn btn-default check_out" href="">Check Out</a>
+
                 </div>
             </div>
         </div>

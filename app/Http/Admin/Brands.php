@@ -18,13 +18,13 @@ use SleepingOwl\Admin\Form\Buttons\SaveAndCreate;
 use SleepingOwl\Admin\Section;
 
 /**
- * Class Categories
+ * Class Brands
  *
- * @property \App\Models\Category $model
+ * @property \App\Models\Brand $model
  *
  * @see https://sleepingowladmin.ru/#/ru/model_configuration_section
  */
-class   Categories extends Section implements Initializable
+class Brands extends Section implements Initializable
 {
     /**
      * @var bool
@@ -59,27 +59,12 @@ class   Categories extends Section implements Initializable
         $columns = [
             AdminColumn::text('id', '#')->setWidth('50px')
                 ->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::image('image_path', 'картинка')->setWidth('100px'),
 
-            AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::link('name', 'Name', 'created_at')
-                ->setSearchCallback(function($column, $query, $search){
-                    return $query
-                        ->orWhere('name', 'like', '%'.$search.'%')
-                        ->orWhere('created_at', 'like', '%'.$search.'%')
-                    ;
-                })
-
-                ->setOrderable(function($query, $direction) {
-                    $query->orderBy('created_at', $direction);
-                })
-            ,
+            AdminColumn::link('name', 'Name'),
 
 
-            AdminColumn::text('publish', 'publish'),
 
 
-            AdminColumn::boolean('name', 'On'),
             AdminColumn::text('created_at', 'Created / updated', 'updated_at')
                 ->setWidth('160px')
                 ->setOrderable(function($query, $direction) {
@@ -90,9 +75,9 @@ class   Categories extends Section implements Initializable
         ];
 
         $display = AdminDisplay::datatables()
-             ->setName('firstdatatables')
+            ->setName('firstdatatables')
             ->setOrder([[0, 'asc']])
-             ->setDisplaySearch(true)
+            ->setDisplaySearch(true)
             ->paginate(25)
             ->setColumns($columns)
             ->setHtmlAttribute('class', 'table-primary table-hover th-center')
@@ -100,7 +85,7 @@ class   Categories extends Section implements Initializable
 
         $display->setColumnFilters([
             AdminColumnFilter::select()
-                ->setModelForOptions(\App\Models\Category::class, 'name')
+                ->setModelForOptions(\App\Models\Brand::class, 'name')
                 ->setLoadOptionsQueryPreparer(function($element, $query) {
                     return $query;
                 })
@@ -119,16 +104,12 @@ class   Categories extends Section implements Initializable
      * @param array $payload
      *
      * @return FormInterface
-     * @throws \Exception
      */
     public function onEdit($id = null, $payload = [])
     {
         $form = AdminForm::card()->addBody([
             AdminFormElement::columns()->addColumn([
                 AdminFormElement::text('name', 'Name')
-                    ->required()
-                ,
-                AdminFormElement::text('publish', 'publish')
                     ->required()
                 ,
                 AdminFormElement::html('<hr>'),
@@ -145,8 +126,8 @@ class   Categories extends Section implements Initializable
 
         $form->getButtons()->setButtons([
             'save'  => new Save(),
-           // 'save_and_close'  => new SaveAndClose(),
-           // 'save_and_create'  => new SaveAndCreate(),
+            'save_and_close'  => new SaveAndClose(),
+            'save_and_create'  => new SaveAndCreate(),
             'cancel'  => (new Cancel()),
         ]);
 

@@ -10,18 +10,32 @@ function addToCard(id, operation = undefined, qty) {
         data: {
             product_id: id,
             operation: operation,
+
             product: qty
+
         },
         success: function (data) {
             let res = JSON.parse(data);
-            if(!res[id] || res[id].qty < 1 ) {
+
+            let cart = res.cart
+
+            $('#cartSubTotal'  )
+                .text('UAH ' + parseFloat(res.total.sum).toFixed(2))
+            $('#count'  )
+                .text('int' + parseFloat(res.total.count).toFixed(2))
+            $('#Total'  )
+                .text('UAH ' + parseFloat(res.total.sum).toFixed(2))
+
+           //   let cartTotal = res.total // cartTotal.sum, cartTotal.count
+           // // let cartTotal = $("#res.total");
+            if(!cart[id] || cart[id].qty < 1 ) {
                removeElCart(id)
                 return
             }
 
             if ($('#cartValue_' + id).length){
-                $('#cartValue_' + id  ).val(res[id].qty)
-                let total = res[id].price * res[id].qty
+                $('#cartValue_' + id  ).val(cart[id].qty)
+                let total = cart[id].price * cart[id].qty
                 $('#priceId_' + id  ).text('UAH ' + parseFloat(total).toFixed(2))
             }
             // alert('success')
@@ -32,18 +46,22 @@ function addToCard(id, operation = undefined, qty) {
     });
 
 }
-
-function cartDelete(id) {
+function cartDelete(id, qty) {
     $.ajax({
         type: "POST",
         url: "/cartDelete",
         data: {
-           product_id: id
-
+            product_id: id,
+            product: qty
         },
-
         success: function (data) {
-          removeElCart(id)
+            $('#cartSubTotal'  )
+               .text('UAH ' + parseFloat(data.total.sum).toFixed(2))
+            $('#count'  )
+                .text('int ' + parseFloat(data.total.count).toFixed(2))
+            removeElCart(id)
+            $('#Total'  )
+                .text('UAH ' + parseFloat(data.total.sum).toFixed(2))
         },
         error: function (data) {
             alert(data.statusText)
@@ -54,4 +72,5 @@ function cartDelete(id) {
 
 function removeElCart(id) {
     $('#trId_' + id).remove()
+
 }

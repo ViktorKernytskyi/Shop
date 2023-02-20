@@ -5,7 +5,7 @@ namespace App\Providers;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
-
+use App\Models\Brand;
 use SleepingOwl\Admin\Admin;
 
 use SleepingOwl\Admin\Providers\AdminSectionsServiceProvider as ServiceProvider;
@@ -23,6 +23,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
         User::class => 'App\Http\Admin\Users',
         Product::class => 'App\Http\Admin\Products',
         Category::class => 'App\Http\Admin\Categories',
+        Brand::class => 'App\Http\Admin\Brands',
     ];
 
 

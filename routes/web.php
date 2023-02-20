@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-
+//Route::auth()
 //Route::get('/', function () {
 //    return view('index');
 //});
@@ -37,3 +37,4 @@ Route::get('/contact_us', [HomeController::class, 'contactUs'])->name('contact_u
 
 Route::post('/addToCart', [CartController::class, 'addToCart'])->name('addToCart');
 Route::post('/cartDelete', [CartController::class, 'cartDelete'])->name('cartDelete');
+//Route::post('/calcCart', [CartController::class, 'calcCart'])->name('calcCart');

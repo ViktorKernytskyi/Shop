@@ -26,18 +26,34 @@
             @endforeach
         </div><!--/category-products-->
 
+
+
         <div class="brands_products"><!--brands_products-->
             <h2>Brands</h2>
             <div class="brands-name">
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-                    <li><a href="#"> <span class="pull-right">(1)</span>Puma</a></li>
-                    <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-                    <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-                    <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-                    <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-                    <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-                    <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+
+                    @foreach($side_bar as $brands => $brand)
+
+{{--                         {{ $name }}--}}
+                        @foreach( $brand as $name)
+
+{{--                        {{dd($brand)}}--}}
+
+                        <li><a href="#">{{   $name->name }} <span class="pull-right">
+
+{{--                                    (count)--}}
+                                </span></a></li>
+                        @endforeach
+                    @endforeach
+{{--                    <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>--}}
+{{--                    <li><a href="#"> <span class="pull-right">(count)</span>Puma</a></li>--}}
+{{--                    <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>--}}
+{{--                    <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>--}}
+{{--                    <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>--}}
+{{--                    <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>--}}
+{{--                    <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>--}}
+{{--                    <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>--}}
                 </ul>
             </div>
         </div><!--/brands_products-->

@@ -22,9 +22,9 @@ Route::get('my-url', function () {
     return AdminSection::view($content, 'My Page Title');
 });
 
-Route::post('category/my-url', '\App\Http\Controllers\MyController@postMyUrl');
+//Route::post('category/my-url', '\App\Http\Controllers\MyController@postMyUrl');
 
-Route::any('my-page', [
-    'as' => 'admin.my-page',
-    'uses' => '\App\Http\Controllers\MyPageController@myPage',
-]);
+//Route::any('my-page', [
+//    'as' => 'admin.my-page',
+//    'uses' => '\App\Http\Controllers\MyPageController@myPage',
+//]);
