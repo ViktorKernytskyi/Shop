@@ -5,9 +5,12 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+//use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class User
@@ -56,5 +59,14 @@ class User extends Authenticatable
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * @return HasMany
+     */
+//    public function users(): HasMany
+//    {
+//
+//        return $this->hasMany(User::class, 'name', 'id');
+//    }
 
 }

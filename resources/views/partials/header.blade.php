@@ -65,7 +65,27 @@
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="{{ route('checkout') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+
+                            @auth("web")
+                            <li>
+                                <a>
+                                <form method="post" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <button type="submit" style="border: unset; background: white">
+                                        {{"Hello "  .  auth()->user()->name }} /
+                                        <i class="fa fa-unlock"></i> Logout
+
+                                    </button>
+
+                                </form>
+                                </a>
+                            </li>
+
+                            @endauth
+                            @guest("web")
                             <li><a href="{{ route('login') }}"> <i class="fa fa-lock"></i> Login </a></li>
+                            @endguest
                         </ul>
                     </div>
                 </div>

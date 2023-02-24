@@ -52,7 +52,7 @@ class HomeController extends Controller
 
         $products = Product::all();
         $brands = Brand::all();
-        $categories = Category::query()
+               $categories = Category::query()
             ->with('products')
             ->get();
 
@@ -60,7 +60,7 @@ class HomeController extends Controller
             'products' => $products,
             'recProducts' => $products->chunk(3),
             'categories' => $categories,
-            'brands' => $brands
+                        'brands' => $brands
         ]);
     }
 

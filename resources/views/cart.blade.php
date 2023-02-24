@@ -144,12 +144,7 @@
                                 UAH {{ number_format((float)(session()->get('cartTotal.sum')), 2, '.', '') }}
                             </span>
                         </li>
-{{--                        <li>--}}
 
-{{--                            <span id = "cartdelete">--}}
-
-{{--                            </span>--}}
-{{--                        </li>--}}
 
                     </ul>
 
