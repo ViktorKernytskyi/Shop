@@ -7,6 +7,8 @@ use App\Http\Admin\Products;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
+use App\Notifications\NewMessage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -45,10 +47,8 @@ class HomeController extends Controller
     public function index(): View
     {
 
-//        dd(Product::query()->select([
-//            \DB::raw('count(*) as total'),
-//            'brand'
-//        ])->groupBy('brand')->get());
+        $user = User::find(1);
+        $user->notify(new NewMessage('fybcyurvyueuyu'));
 
         $products = Product::all();
         $brands = Brand::all();
@@ -60,7 +60,7 @@ class HomeController extends Controller
             'products' => $products,
             'recProducts' => $products->chunk(3),
             'categories' => $categories,
-                        'brands' => $brands
+            'brands' => $brands
         ]);
     }
 
