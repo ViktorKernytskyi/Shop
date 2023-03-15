@@ -16,43 +16,15 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class HomeController extends Controller
 {
 
-//    public function addToCart(Request $request)
-//    {
-////        session()->flush();
-//        $product_id = $request->get('product_id');
-//        $cart = session()->get('cart', []);
-//
-//        if (isset($cart[$product_id])) {
-//            $request->operation === 'dec'
-//                ? $cart[$product_id]->qty--
-//                : $cart[$product_id]->qty++;
-//        } else {
-//            $product = Product::findOrFail($product_id);
-//            $product->qty = 1;
-//            $cart[$product_id] = $product;
-//        }
-//
-//        $cart[$product_id]->qty > 0
-//            ? session()->put('cart', $cart)
-//            : $this->deleteItem($product_id);
-//
-//        $this->calcCart($cart);
-//
-//        return response()->json(session()->get('cart', []), JsonResponse::HTTP_OK);
-//
-//    }
+
     /**
      * @return View
      */
     public function index(): View
     {
-
-        $user = User::find(1);
-        $user->notify(new NewMessage('fybcyurvyueuyu'));
-
         $products = Product::all();
         $brands = Brand::all();
-               $categories = Category::query()
+        $categories = Category::query()
             ->with('products')
             ->get();
 

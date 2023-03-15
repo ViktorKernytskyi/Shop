@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\Custom\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
@@ -15,11 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+
 
 Route::prefix('custom')->group(function() {
 //   Route::get('login')
+
+    Route::get('register', [UserController::class, 'register'])->name('register');
+
+    Route::get('login_1', [UserController::class, 'login'])->name('login_1');
+    Route::post('login_1', [UserController::class, 'loginValidate'])->name('login_1');
+
+    Route::get('forgot-password', [UserController::class, 'forgotPassword'])->name('forgot-password');
+    Route::get('forgot-password/{token}', [UserController::class, 'forgotPasswordValidate']);
+    Route::post('forgot-password', [UserController::class, 'resetPassword'])->name('forgot-password');
+
+    Route::put('reset-password', [UserController::class, 'updatePassword'])->name('reset-password');
 });
+
+Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');

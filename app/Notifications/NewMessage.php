@@ -50,7 +50,7 @@ class NewMessage extends Notification
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
                     ->line('Hello world!')
-                    ->line($this->user)
+                    ->line($this->user )
                     ->line('Thank you for using our application!');
     }
 
