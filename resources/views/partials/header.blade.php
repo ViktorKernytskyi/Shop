@@ -18,6 +18,8 @@
                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                             <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="{{ url('/login/github') }}"><i class="fa fa-github" aria-hidden="true"></i>
+                                    </a></li>
                         </ul>
                     </div>
                 </div>

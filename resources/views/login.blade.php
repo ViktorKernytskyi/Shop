@@ -20,6 +20,17 @@
 								Keep me signed in
 							</span>
                             <button type="submit" class="btn btn-default">Login</button>
+
+                            <div class="card-body">
+                                <div class="col-md-6 col-md-offset-4">
+{{--                                    Login with--}}
+                                    <li>  <a href="{{ url('/login/facebook') }}"><i class="fa fa-facebook" aria-hidden="true"></i>
+                                            sign in with Facebook</a></li>
+                                    <button type="submit" class="btn btn-default"><a href="{{route('github.login') }}"><i class="fa fa-github" aria-hidden="true"></i> sign in with GitHub</a></button>
+                                    <li> <a href="{{ route('github.login')  }}"><i class="fa fa-github" aria-hidden="true"></i> sign in with GitHub</a></li>
+                                </div>
+                            </div>
+
                         </form>
                     </div><!--/login form-->
                 </div>

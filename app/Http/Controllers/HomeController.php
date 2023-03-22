@@ -62,27 +62,31 @@ class HomeController extends Controller
     public function blog( )
     {
         return view('blog');
-}
+    }
 
     public function blogSingle( )
     {
         return view('blog_single');
 
     }
+
     public function contactUs( )
     {
         return view('contact_us');
     }
+
     public function login( )
     {
         \Auth::logout();
 //        dd(auth()->user());
         return view('login');
     }
+
     public function shop( )
     {
         return view('shop');
     }
+
     public function productDetails( )
     {
         return view('product_details');

@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Auth\Custom\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\GithubController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
-
+use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +17,26 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" midd leware group. Now create something great!
 |
 */
+//Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
+
+//Route::get('login/github', function () {
+//    return Socialite::driver('github')->redirect();
+//
+//});
+
+Route::get('login/github/callback',[GithubController::class, 'githubRedirect']) ->name('callback.github.login');
+Route::get('login/github',[GithubController::class, 'github']) ->name('github.login');
+//
+
+//Route::get('/auth/redirect', function () {
+//    return Socialite::driver('github')->redirect();
+//});
+//
+//Route::get('/auth/callback', function () {
+//    $user = Socialite::driver('github')->user();
+//
+//    // $user->token
+//});
 
 
 
