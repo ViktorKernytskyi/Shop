@@ -13,22 +13,16 @@
                         <form action="{{ route('login') }}" method="post">
                             @csrf
                             <input type="email"  name="email"  placeholder="Email Address" />
-
                             <input type="password" name="password" placeholder="Password" />
                             <span>
 								<input type="checkbox" class="checkbox">
 								Keep me signed in
 							</span>
                             <button type="submit" class="btn btn-default">Login</button>
-
-                            <div class="card-body">
-                                <div class="col-md-6 col-md-offset-4">
-{{--                                    Login with--}}
-                                    <li>  <a href="{{ url('/login/facebook') }}"><i class="fa fa-facebook" aria-hidden="true"></i>
-                                            sign in with Facebook</a></li>
-                                    <button type="submit" class="btn btn-default"><a href="{{route('github.login') }}"><i class="fa fa-github" aria-hidden="true"></i> sign in with GitHub</a></button>
-                                    <li> <a href="{{ route('github.login')  }}"><i class="fa fa-github" aria-hidden="true"></i> sign in with GitHub</a></li>
-                                </div>
+                            <div class="col">
+                                <h2 style="text-align:center">Login with Social Media</h2>
+                                <a href="{{ route('github.login')  }}"class="git btn">
+                                    <i class="fa fa-github" aria-hidden="true"></i> Login  with GitHub</a>
                             </div>
 
                         </form>

@@ -59,20 +59,19 @@ class Users extends Section implements Initializable
         $columns = [
             AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::link('name', 'Name', 'created_at')
-                ->setSearchCallback(function($column, $query, $search){
+                ->setSearchCallback(function ($column, $query, $search) {
                     return $query
-                        ->orWhere('name', 'like', '%'.$search.'%')
-                        ->orWhere('created_at', 'like', '%'.$search.'%')
-                    ;
+                        ->orWhere('name', 'like', '%' . $search . '%')
+                        ->orWhere('created_at', 'like', '%' . $search . '%');
                 })
-                ->setOrderable(function($query, $direction) {
+                ->setOrderable(function ($query, $direction) {
                     $query->orderBy('created_at', $direction);
                 })
             ,
             AdminColumn::boolean('name', 'On'),
             AdminColumn::text('created_at', 'Created / updated', 'updated_at')
                 ->setWidth('160px')
-                ->setOrderable(function($query, $direction) {
+                ->setOrderable(function ($query, $direction) {
                     $query->orderBy('updated_at', $direction);
                 })
                 ->setSearchable(false)
@@ -85,13 +84,12 @@ class Users extends Section implements Initializable
             ->setDisplaySearch(true)
             ->paginate(25)
             ->setColumns($columns)
-            ->setHtmlAttribute('class', 'table-primary table-hover th-center')
-        ;
+            ->setHtmlAttribute('class', 'table-primary table-hover th-center');
 
         $display->setColumnFilters([
             AdminColumnFilter::select()
                 ->setModelForOptions(\App\Models\User::class, 'name')
-                ->setLoadOptionsQueryPreparer(function($element, $query) {
+                ->setLoadOptionsQueryPreparer(function ($element, $query) {
                     return $query;
                 })
                 ->setDisplay('name')
@@ -130,10 +128,10 @@ class Users extends Section implements Initializable
         ]);
 
         $form->getButtons()->setButtons([
-            'save'  => new Save(),
-          //  'save_and_close'  => new SaveAndClose(),
-          //  'save_and_create'  => new SaveAndCreate(),
-            'cancel'  => (new Cancel()),
+            'save' => new Save(),
+            //  'save_and_close'  => new SaveAndClose(),
+            //  'save_and_create'  => new SaveAndCreate(),
+            'cancel' => (new Cancel()),
         ]);
 
         return $form;

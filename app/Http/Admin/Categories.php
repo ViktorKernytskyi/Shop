@@ -60,7 +60,6 @@ class   Categories extends Section implements Initializable
             AdminColumn::text('id', '#')->setWidth('50px')
                 ->setHtmlAttribute('class', 'text-center'),
             AdminColumn::image('image_path', 'картинка')->setWidth('100px'),
-
             AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::link('name', 'Name', 'created_at')
                 ->setSearchCallback(function($column, $query, $search){
@@ -69,16 +68,11 @@ class   Categories extends Section implements Initializable
                         ->orWhere('created_at', 'like', '%'.$search.'%')
                     ;
                 })
-
                 ->setOrderable(function($query, $direction) {
                     $query->orderBy('created_at', $direction);
                 })
             ,
-
-
             AdminColumn::text('publish', 'publish'),
-
-
             AdminColumn::boolean('name', 'On'),
             AdminColumn::text('created_at', 'Created / updated', 'updated_at')
                 ->setWidth('160px')

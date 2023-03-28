@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,23 +25,13 @@ use Laravel\Socialite\Facades\Socialite;
 //
 //});
 
-Route::get('login/github/callback',[GithubController::class, 'githubRedirect']) ->name('callback.github.login');
-Route::get('login/github',[GithubController::class, 'github']) ->name('github.login');
+Route::get('login/github/callback', [GithubController::class, 'githubRedirect'])->name('callback.github.login');
+Route::get('login/github', [GithubController::class, 'github'])->name('github.login');
 //
 
-//Route::get('/auth/redirect', function () {
-//    return Socialite::driver('github')->redirect();
-//});
-//
-//Route::get('/auth/callback', function () {
-//    $user = Socialite::driver('github')->user();
-//
-//    // $user->token
-//});
 
 
-
-Route::prefix('custom')->group(function() {
+Route::prefix('custom')->group(function () {
 //   Route::get('login')
 
     Route::get('register', [UserController::class, 'register'])->name('register');

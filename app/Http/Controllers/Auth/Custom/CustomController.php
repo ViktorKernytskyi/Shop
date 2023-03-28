@@ -13,24 +13,24 @@ class CustomController extends Controller
         return view('index');
 
     }
-    public function login( )
+
+    public function login()
     {
         \Auth::logout();
         return view('login_1');
     }
-    public function register( )
+
+    public function register()
     {
         return view('register');
     }
-    public function forgotPassword( )
+
+    public function forgotPassword()
     {
         return view('forgot-password');
     }
-//    public function forgotPasswordValidate( )
-//    {
-//        return view('forgot-password');
-//    }
-    public function updatePassword( )
+
+    public function updatePassword()
     {
         return view('reset-password');
     }

@@ -15,8 +15,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class HomeController extends Controller
 {
-
-
     /**
      * @return View
      */
@@ -36,14 +34,6 @@ class HomeController extends Controller
         ]);
     }
 
-//    public function cart()
-//    {
-//        $products = Product::all();
-//
-//        return view('cart', [
-//            'products' => $products
-//        ]);
-//    }
     public function notFound()
     {
 
@@ -55,10 +45,6 @@ class HomeController extends Controller
         return view('checkout');
     }
 
-//    public function cart()
-//    {
-//        return view('cart');
-//    }
     public function blog( )
     {
         return view('blog');
@@ -78,7 +64,7 @@ class HomeController extends Controller
     public function login( )
     {
         \Auth::logout();
-//        dd(auth()->user());
+
         return view('login');
     }
 

@@ -15,7 +15,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-
         $this->setSidebarCategories();
         $this->setSidebarBrands();
     }
@@ -31,7 +30,6 @@ class Controller extends BaseController
     {
         \View::share('side_bar', Brand::query()
             ->select(['brands.name'])
-
             ->get()->groupBy('name'));
     }
 }

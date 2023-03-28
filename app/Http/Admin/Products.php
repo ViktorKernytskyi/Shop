@@ -71,7 +71,6 @@ class Products extends Section implements Initializable
             AdminColumn::text('brand', 'марка'),
 
 
-
             AdminColumn::text('description', 'Опис'),
             AdminColumn::text('price', 'ціна'),
             AdminColumn::text('category.name', 'Category'),
@@ -115,19 +114,13 @@ class Products extends Section implements Initializable
 
         $form = AdminForm::card()->addBody([
 
-
             AdminFormElement::columns()->addColumn([
-
-
                 AdminFormElement::text('name', 'Name')->required(),
-
                 AdminFormElement::text('articul', 'articul')->required(),
                 AdminFormElement::text('brand', 'brand'),
                 AdminFormElement::text('price', 'price')->required(),
                 AdminFormElement::select('category_id', 'Category', $categories),
-
                 AdminFormElement::checkbox('publish', 'Publish'),
-
                 AdminFormElement::html('<hr>'),
                 AdminFormElement::datetime('updated_at')
                     ->setVisible(true)
@@ -153,10 +146,10 @@ class Products extends Section implements Initializable
         ]);
 
         $form->getButtons()->setButtons([
-            'save'  => new Save(),
-           // 'save_and_close'  => new SaveAndClose(),
-          //  'save_and_create'  => new SaveAndCreate(),
-            'cancel'  => (new Cancel()),
+            'save' => new Save(),
+            // 'save_and_close'  => new SaveAndClose(),
+            //  'save_and_create'  => new SaveAndCreate(),
+            'cancel' => (new Cancel()),
         ]);
 
         return $form;

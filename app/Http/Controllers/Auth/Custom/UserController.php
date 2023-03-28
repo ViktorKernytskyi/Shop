@@ -120,10 +120,10 @@ class UserController extends Controller
 
         Mail::to($request->email)->send(new ResetPassword($user->name, $token));
 
-        if(Mail::failures() != 0) {
+        if (Mail::failures() != 0) {
             return back()->with('success', 'Success! password reset link has been sent to your email');
         }
-        return back()->with('failed', 'Failed! there is some issue with email provider');
+            return back()->with('failed', 'Failed! there is some issue with email provider');
     }
 
     /**
@@ -131,7 +131,8 @@ class UserController extends Controller
      * @param request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function updatePassword(Request $request) {
+    public function updatePassword(Request $request)
+    {
         $this->validate($request, [
             'email' => 'required',
             'password' => 'required|min:6',

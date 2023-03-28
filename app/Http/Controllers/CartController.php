@@ -22,7 +22,8 @@ class CartController extends Controller
         $product_id = $request->get('product_id');
         $cart = session()->get('cart', []);
 
-        if (isset($cart[$product_id])) {
+        if (isset($cart[$product_id]))
+        {
             $request->operation === 'dec'
                 ? $cart[$product_id]->qty--
                 : $cart[$product_id]->qty++;
@@ -70,7 +71,7 @@ class CartController extends Controller
 
         return response()->json([
             'message' => 'Deleted',
-              'cart' => session()->get('cart', []),
+            'cart' => session()->get('cart', []),
             'total' => session()->get('cartTotal', [])
         ], JsonResponse::HTTP_OK);
     }

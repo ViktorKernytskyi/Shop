@@ -14,7 +14,6 @@ class Brand extends Model
    * Relations
    */
 
-
     /**
      * @return HasMany
      */
