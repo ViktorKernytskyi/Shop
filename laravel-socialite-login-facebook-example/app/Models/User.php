@@ -2,21 +2,12 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-/**
- * Class User
- * @package App\Models
- *
- * @property string $name
- * @property Carbon $created_at
- * @property Carbon $updated_at
- */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -26,14 +17,11 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = array(
+    protected $fillable = [
         'name',
         'email',
         'password',
-        'is_verified',
-        'github_id',
-        'fb_id'
-    );
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -52,11 +40,5 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
-
-    /** @var string[] */
-    protected $dates = [
-        'created_at',
-        'updated_at'
     ];
 }

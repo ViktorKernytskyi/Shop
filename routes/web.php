@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
-
+use App\Http\Controllers\Auth\Facebook\FacebookController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +27,9 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('login/github/callback', [GithubController::class, 'githubRedirect'])->name('callback.github.login');
 Route::get('login/github', [GithubController::class, 'github'])->name('github.login');
-//
-
-
+//пше
+Route::get('login/facebook/callback', [FacebookController::class, 'facebookRedirect'])->name('callback.facebook.login');
+Route::get('login/facebook', [FacebookController::class, 'facebook'])->name('facebook.login');
 
 Route::prefix('custom')->group(function () {
 //   Route::get('login')
