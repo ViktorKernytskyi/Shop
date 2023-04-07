@@ -1,0 +1,27 @@
+[2023-04-03 19:13:41] local.ERROR: Command "optimize:list" is not defined.
+
+Did you mean one of these?
+    event:list
+    make:listener
+    optimize
+    optimize:clear
+    queue:listen
+    route:list
+    schedule:list {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"optimize:list\" is not defined.
+
+Did you mean one of these?
+    event:list
+    make:listener
+    optimize
+    optimize:clear
+    queue:listen
+    route:list
+    schedule:list at C:\\OpenServer\\domains\\shop\\laravel-socialite-login-facebook-example\\vendor\\symfony\\console\\Application.php:720)
+[stacktrace]
+#0 C:\\OpenServer\\domains\\shop\\laravel-socialite-login-facebook-example\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find()
+#1 C:\\OpenServer\\domains\\shop\\laravel-socialite-login-facebook-example\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun()
+#2 C:\\OpenServer\\domains\\shop\\laravel-socialite-login-facebook-example\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(94): Symfony\\Component\\Console\\Application->run()
+#3 C:\\OpenServer\\domains\\shop\\laravel-socialite-login-facebook-example\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run()
+#4 C:\\OpenServer\\domains\\shop\\laravel-socialite-login-facebook-example\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
