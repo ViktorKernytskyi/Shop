@@ -44,6 +44,7 @@ class CartController extends Controller
             'total' => session()->get('cartTotal', [])
         ], JsonResponse::HTTP_OK);
 
+
     }
 
     /**

@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
+    protected $guarded = [];
+     /**
+      * Связь «один ко многим» таблицы `orders` с таблицей `invoice`
+      */
+        public function orders()
+        {
+            return $this->hasMany(Invoice::class);
+            //use HasFactory;
+        }
 }

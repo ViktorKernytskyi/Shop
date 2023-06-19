@@ -10,13 +10,11 @@ function addToCard(id, operation = undefined, qty) {
         data: {
             product_id: id,
             operation: operation,
-
             product: qty
 
         },
         success: function (data) {
             let res = JSON.parse(data);
-
             let cart = res.cart
 
             $('#cartSubTotal'  )
@@ -72,5 +70,19 @@ function cartDelete(id, qty) {
 
 function removeElCart(id) {
     $('#trId_' + id).remove()
+}
+
+function createInvoice() {
+    $.ajax({
+        type: "POST",
+        url: "/createInvoice",
+        success: function (data) {
+            alert('Success');
+          window.location.href = '/checkout'
+        },
+        error: function (data) {
+            alert('Error')
+        }
+    });
 
 }

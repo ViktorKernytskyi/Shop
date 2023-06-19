@@ -20,6 +20,7 @@ class HomeController extends Controller
      */
     public function index(): View
     {
+        $users = User::all();
         $products = Product::all();
         $brands = Brand::all();
         $categories = Category::query()
@@ -27,6 +28,7 @@ class HomeController extends Controller
             ->get();
 
         return view('index', [
+            'users' => $users,
             'products' => $products,
             'recProducts' => $products->chunk(3),
             'categories' => $categories,
@@ -42,7 +44,12 @@ class HomeController extends Controller
 
     public function checkout(Request $request)
     {
-        return view('checkout');
+        $user = User::all();
+        return view('checkout', [
+            'user' => $user,
+            'cart' => session()->get('cart', [])
+        ]);
+
     }
 
     public function blog( )
@@ -58,6 +65,7 @@ class HomeController extends Controller
 
     public function contactUs( )
     {
+
         return view('contact_us');
     }
 

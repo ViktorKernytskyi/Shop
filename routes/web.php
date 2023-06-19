@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\GithubController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -25,24 +26,21 @@ use Laravel\Socialite\Facades\Socialite;
 //
 //});
 
+Route::post('/createInvoice', [OrderController::class, 'createInvoice'])->name('createInvoice');
+
+//
 Route::get('login/github/callback', [GithubController::class, 'githubRedirect'])->name('callback.github.login');
 Route::get('login/github', [GithubController::class, 'github'])->name('github.login');
 //
 
-
-
 Route::prefix('custom')->group(function () {
 //   Route::get('login')
-
     Route::get('register', [UserController::class, 'register'])->name('register');
-
     Route::get('login_1', [UserController::class, 'login'])->name('login_1');
     Route::post('login_1', [UserController::class, 'loginValidate'])->name('login_1');
-
     Route::get('forgot-password', [UserController::class, 'forgotPassword'])->name('forgot-password');
     Route::get('forgot-password/{token}', [UserController::class, 'forgotPasswordValidate']);
     Route::post('forgot-password', [UserController::class, 'resetPassword'])->name('forgot-password');
-
     Route::put('reset-password', [UserController::class, 'updatePassword'])->name('reset-password');
 });
 
@@ -64,3 +62,4 @@ Route::get('/contact_us', [HomeController::class, 'contactUs'])->name('contact_u
 Route::post('/addToCart', [CartController::class, 'addToCart'])->name('addToCart');
 Route::post('/cartDelete', [CartController::class, 'cartDelete'])->name('cartDelete');
 //Route::post('/calcCart', [CartController::class, 'calcCart'])->name('calcCart');
+
