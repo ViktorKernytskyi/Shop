@@ -7,6 +7,26 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Shop Management Application
+
+This is a **Shop Management System** built with **Laravel 8**, designed to manage products, customers, and orders efficiently.
+
+### Features
+- Add, edit, and delete products.
+- Manage customer data.
+- Track orders and transactions.
+
+### Requirements
+- **PHP**: 7.4+
+- **Database**: MariaDB
+- **Laravel**: 8.x
+- **Composer**
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ViktorKernytskyi/Shop.git
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
