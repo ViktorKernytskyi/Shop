@@ -18,7 +18,7 @@ This is a **Shop Management System** built with **Laravel 8**, designed to manag
 
 ### Requirements
 - **PHP**: 7.4+
-- **Database**: MariaDB
+- **Database**:  MySQL
 - **Laravel**: 8.x
 - **Composer**
 
